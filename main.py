@@ -36,10 +36,11 @@ def getPi(n,img):
 	return inside/outside, arr
 
 
-def makePi(n):
+def makePi(n,lowerLimit,upperLimit):
 	img = Image.new("RGB", (size+2*offset,size+2*offset), "white")
 	pi, arr = getPi(n,img)
-	if 3.14 < pi < 3.15:
+	print(pi)
+	if lowerLimit < pi < upperLimit:
 		drawCircle(img)
 		colorCircle(img, arr)
 		img.show()
@@ -48,8 +49,10 @@ def makePi(n):
 
 def main():
 	n = 10**5
+	lowerLimit = float(input("Lower Limit: "))
+	upperLimit = float(input("Upper Limit: "))
 	while(1):
-		makePi(n)
+		makePi(n,lowerLimit,upperLimit)
 
 
 main()
